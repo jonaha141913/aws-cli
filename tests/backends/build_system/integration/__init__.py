@@ -32,7 +32,7 @@ BOOTSTRAP_REQUIREMENTS = (
 PORTABLE_EXE_REQUIREMENTS = (
     ROOT / "requirements" / "download-deps" / f"portable-exe-{LOCK_SUFFIX}"
 )
-SYSTEM_SANDBOX_REQIREMENTS = (
+SYSTEM_SANDBOX_REQUIREMENTS = (
     ROOT / "requirements" / "download-deps" / f"system-sandbox-{LOCK_SUFFIX}"
 )
 
@@ -161,7 +161,7 @@ class VEnvWorkspace:
 
     def install_dependencies(self):
         self.install_bootstrap_dependencies()
-        self._install_requirements_file(SYSTEM_SANDBOX_REQIREMENTS)
+        self._install_requirements_file(SYSTEM_SANDBOX_REQUIREMENTS)
 
     def install_pyinstaller(self):
         self._install_requirements_file(PORTABLE_EXE_REQUIREMENTS)
