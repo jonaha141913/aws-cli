@@ -105,7 +105,7 @@ class TestAwsCliVenv:
         ][0]
         return site_path
 
-    @skip_if_windows("Posix virtualenv")
+    @pytest.mark.skipif(sys.platform == 'win32', reason='Posix virtualenv')
     def test_create(self, tmp_path_factory):
         path = tmp_path_factory.mktemp("test_create")
         venv = AwsCliVenv(path)
