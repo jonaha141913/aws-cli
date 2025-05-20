@@ -32,7 +32,7 @@ BOOTSTRAP_REQUIREMENTS = (
 PORTABLE_EXE_REQUIREMENTS = (
     ROOT / "requirements" / "download-deps" / f"portable-exe-{LOCK_SUFFIX}"
 )
-SYSTEM_SANDBOX_REQIREMENTS = (
+SYSTEM_SANDBOX_REQUIREMENTS = (
     ROOT / "requirements" / "download-deps" / f"system-sandbox-{LOCK_SUFFIX}"
 )
 
