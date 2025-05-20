@@ -208,7 +208,7 @@ class TestAwsCliVenv:
         ac_index_path = cli_path / "data" / "ac.index"
         assert os.path.exists(ac_index_path) is True
 
-    @skip_if_windows("No bin dir on windows")
+    @pytest.mark.skipif(not sys.platform.startswith('win'), reason="No bin dir on windows")
     def test_bin_dir(self, cli_venv, venv_path):
         assert cli_venv.bin_dir == os.path.join(venv_path, "bin")
 
