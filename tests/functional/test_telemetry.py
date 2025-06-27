@@ -113,16 +113,8 @@ class TestCLISessionDatabaseConnection:
                 # Simulate timeout by always raising.
                 raise sqlite3.OperationalError()
 
-        fake_conn = CLISessionDatabaseConnection(FakeConnection(":memory:"))
-        cursor = fake_conn.execute(
-            """
-                SELECT name
-                FROM sqlite_master
-                WHERE type='table'
-                AND name='session';
-            """
-        )
-        assert cursor.fetchall() == []
+        with pytest.raises(sqlite3.OperationalError):
+            fake_conn = CLISessionDatabaseConnection(FakeConnection(":memory:"))
 
 
 class TestCLISessionDatabaseWriter:
