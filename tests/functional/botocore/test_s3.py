@@ -2192,7 +2192,7 @@ def test_checksum_content_encoding(content_encoding, expected_header):
         assert request_headers["Content-Encoding"] == expected_header
 
 
-@mock.patch('botocore.endpoint.URLLib3Session.send')
+@mock.patch('botocore.httpsession.URLLib3Session.send')
 @mock.patch('botocore.client.apply_request_checksum')
 def test_retries_reuse_request_checksum(
     mock_apply_request_checksum, mock_urllib3_session_send
